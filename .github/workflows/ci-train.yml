@@ -49,7 +49,11 @@ jobs:
 
       # download dataset
       - name: download dataset from s3
-        run: make pull
+        run: |
+          pwd
+          which python
+          dvc --version
+          dvc pull
 
       - name: make sure tensorboard not starts
         run: make showoff
