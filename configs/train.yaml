@@ -60,7 +60,7 @@ hydra:
       n_startup_trials: 3 # number of random sampling runs before optimization starts
     direction: minimize   # we use test_metrics['test/loss_epoch']
     study_name: optimal_searching
-    n_trials: 2  #108 totoal
+    n_trials: 10  #108 totoal
     n_jobs: 16    # 16-thread
     params:
       # https://github.com/facebookresearch/hydra/discussions/2906
