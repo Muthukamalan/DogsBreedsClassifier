@@ -27,7 +27,10 @@ jobs:
 
       # install deps
       - name: Set requirements
-        run: pip install -r requirements.txt
+        run: |
+          pythoon3 -m venv .venv/
+          source .venv/bin/activate
+          pip install -r requirements.txt
 
       # removing dataset & old confusion-matrcies 🌀😶‍🌫️
       - name: cleaning existing files 🪥
@@ -52,14 +55,17 @@ jobs:
       #     make mshow
       #     make train
 
-      - name: save artifacts
-        uses: actions/upload-artifact@v3
-        with:
-        name: artifacts
-        path: |
-          logs
-          outputs/*/*/checkpoints/*.ckpt
-          # multirun/*/*/optimization_results.yaml
+      # pushing files to s3
+      # - name: save artifacts
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #   name: artifacts
+      #   path: |
+      #     logs
+      #     outputs/*/*/checkpoints/*.ckpt
+      #     # multirun/*/*/optimization_results.yaml
+
+
 
         # multirun/*/*/*/checkpoints/*.ckpt  
         # ⛓️‍💥 NOT DOABLE of redudent name convention
