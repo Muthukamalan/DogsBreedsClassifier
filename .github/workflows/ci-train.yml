@@ -31,19 +31,21 @@ jobs:
           unzip awscliv2.zip
           sudo ./aws/install --update
 
-      - name: check s3
-        run: |
-          aws s3 ls
-          aws s3 ls s3://mhema-dog-breeds-bucket
+      # - name: check s3
+      #   run: |
+      #     aws s3 ls
+      #     aws s3 ls s3://mhema-dog-breeds-bucket
 
       # install deps
-      - name: Set requirements
+      - name: Set requirements & train🐒 & push to s3🪣
         run: |
           python3 -m venv .venv/
           source .venv/bin/activate
           pip install -r requirements.txt
           make pull
-          make fastrun
+          make showoff
+          make train
+          
 
       # # removing dataset & old confusion-matrcies 🌀😶‍🌫️
       # - name: cleaning existing files 🪥
@@ -57,14 +59,14 @@ jobs:
       #     dvc --version
       #     dvc pull
 
-      - name: make sure tensorboard not starts
-        run: make showoff
+      # - name: make sure tensorboard not starts
+      #   run: make showoff
 
-      # comment later 🙊
-      - name: Check model is running
-        run: |
-          make sshow
-          make fastrun
+      # # comment later 🙊
+      # - name: Check model is running
+      #   run: |
+      #     make sshow
+      #     make fastrun
 
       # uncomment later 🐒🦧🏋️🤾
       # - name: Run Hparams Search  
@@ -81,8 +83,6 @@ jobs:
       #     logs
       #     outputs/*/*/checkpoints/*.ckpt
       #     # multirun/*/*/optimization_results.yaml
-
-
 
         # multirun/*/*/*/checkpoints/*.ckpt  
         # ⛓️‍💥 NOT DOABLE of redudent name convention
