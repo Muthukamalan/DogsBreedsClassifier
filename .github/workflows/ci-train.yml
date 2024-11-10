@@ -42,18 +42,20 @@ jobs:
           python3 -m venv .venv/
           source .venv/bin/activate
           pip install -r requirements.txt
+          make pull
+          make fastrun
 
-      # removing dataset & old confusion-matrcies 🌀😶‍🌫️
-      - name: cleaning existing files 🪥
-        run: make trash
+      # # removing dataset & old confusion-matrcies 🌀😶‍🌫️
+      # - name: cleaning existing files 🪥
+      #   run: make trash
 
-      # download dataset
-      - name: download dataset from s3
-        run: |
-          pwd
-          which python
-          dvc --version
-          dvc pull
+      # # download dataset
+      # - name: download dataset from s3
+      #   run: |
+      #     pwd
+      #     which python
+      #     dvc --version
+      #     dvc pull
 
       - name: make sure tensorboard not starts
         run: make showoff
