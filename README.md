@@ -14,6 +14,8 @@ AWS_SECRET_ACCESS_KEY=
 DOCKER_USERNAME=
 DOCKER_PASSWORD=
 ```
+# Runner-Setup
+<div align='center'><img src="assets/self-hosted-runners.png" style="width: 100%;"\> </div>
 
 
 ## Clean 
@@ -32,6 +34,8 @@ make sshow
 ```
 
 ### Hparms:: Optuna
+<div align='center'><img src="assets/runner-ec2-training.png" style="width: 100%;"\> </div>
+
 ##### Loss & Accuracy Curves
 - Train DataLoader
 - Val DataLoader
@@ -40,7 +44,12 @@ make sshow
 <div align='center'><img src="assets/MambaOutHparamsTestScores.png" style="width: 100%;"\> </div>
 
 #### LearningRate
-??
+![lr-adam](reports/lr-Adam.png)
+
+### Artifacts in S3 🪣
+<div align='center'><img src="assets/hparams-artifacts.png" style="width: 100%;"\> </div>
+
+
 
 ## Test- PyTest
 ```sh
@@ -168,6 +177,6 @@ Processed guess1.jpg: Boxer (0.96)
 ```
 
 - **collab**
-    - @abhiya
-    - @mhema
-    - @muthu
+    - @abhiya🩺
+    - @mhema 🧘‍♀️
+    - @muthu 🤾‍♂️
